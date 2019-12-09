@@ -1,28 +1,14 @@
 package com.ustglobal.arcloudanchors;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 public class LauncherActivity extends AppCompatActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
@@ -102,28 +88,4 @@ public class LauncherActivity extends AppCompatActivity implements View.OnClickL
         i.putExtra(MODE,userMode);
         startActivity(i);
     }
-
-  /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-       // Inflate the menu; this adds items to the action bar if it is present.
-       getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id){
-            case R.id.item1:
-                Toast.makeText(getApplicationContext(),"User Selected",Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.item2:
-                Toast.makeText(getApplicationContext(),"Admin Selected",Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
-
-
 }

@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (MODE.equalsIgnoreCase("user")) {
             modelOptionsSpinner.setVisibility(View.GONE);
-//            resolve.setVisibility(View.GONE);
         } else {
             modelOptionsSpinner.setVisibility(View.VISIBLE);
             resolve.setVisibility(View.VISIBLE);
@@ -150,18 +149,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     }
-
-//    private void createModel(Anchor childAnchor) {
-//        ModelRenderable
-//                .builder()
-//                .setSource(this, Uri.parse("model.sfb"))
-//                .build()
-//                .thenAccept(modelRenderable -> placeModel(childAnchor, modelRenderable));
-//    }
-//
-//    private void placeModel(Anchor childAnchor, ModelRenderable modelRenderable) {
-//
-//    }
 
     private void showToast(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
@@ -178,11 +165,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void placeCloudAnchorModel(Anchor anchor, ModelRenderable modelRenderable) {
         anchorNode = new AnchorNode(anchor);
-//        anchorNode.setRenderable(modelRenderable);
-////        anchorNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0.0f, 1.0f, 0.0f), 90f));
-
-        //AnchorNode cannot be zoomed in or moved
-        //So we create a TransformableNode with AnchorNode as the parent
+        /*AnchorNode cannot be zoomed in or moved
+        So we create a TransformableNode with AnchorNode as the parent*/
         TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
 
         if (modelOptionsSpinner.getSelectedItem().toString().equals("Straight Arrow")) {
@@ -194,16 +178,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (modelOptionsSpinner.getSelectedItem().toString().equals("Left Arrow")) {
             transformableNode.setLocalRotation(Quaternion.axisAngle(new Vector3(0, 1f, 0), 315));
         }
-
         transformableNode.setParent(anchorNode);
         //adding the model to the transformable node
         transformableNode.setRenderable(modelRenderable);
         //adding this to the scene
         arFragment.getArSceneView().getScene().addChild(anchorNode);
-//        transformableNode.select();
-
-//        arFragment.getArSceneView().getScene().addChild(anchorNode);
-
     }
 
     @Override
